@@ -114,7 +114,7 @@ include 'koneksi.php';
          <div class="col-md-4 mb-5">
           <div class="card shadow-sm" style="width: 98%;">
             <img src="<?php echo $isi['gambar'] ?>" style="height:230px;" class="card-img-top" alt="">
-            <div class="card-body">
+            <div class="card-body" style="height: 200px;">
               <h5 class="card-title fw-bold text-center"><?php echo $isi['judul'] ?></h5>
               <p class="card-text"><?php echo $isi['isi'] ?></p>
             </div>
