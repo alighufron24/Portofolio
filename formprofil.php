@@ -30,7 +30,10 @@ if( mysqli_num_rows($query) < 1 ){
   <!-- Navigation Bar -->
   <nav class="navbar navbar-light sticky-top mb-5" style="background-color: #1B95AF;">
             <div class="container text-center">
-                <span class="navbar-brand h1 p-2 fw-bold text-light">Ali Ghufron</span>
+                <p class="navbar-brand h1 p-2 fw-bold text-light"><?php echo $profil['nama'] ?></p>
+            </div>
+            <div class="navbar-nav ms-auto">
+              <a class="me-5 fw-bold" style="color: white; text-decoration: none;" href="admin.php">Kembali</a>
             </div>
         </nav>
 

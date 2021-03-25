@@ -61,7 +61,7 @@ include 'koneksi.php';
         <p class="lead text-center mt-2 fw-bold fs-2"><?php echo $profil['nama'] ?></p>
 
        <?php
-        echo "<a class='btn btn-outline-light me-1' name='edita' href='formprofil.php?id=".$profil['id']."'>Edit About</a> ";
+        echo "<a class='btn btn-outline-light me-1' name='edita' href='formprofil.php?id=".$profil['id']."'>Edit Profil</a> ";
        ?>
 
         
@@ -110,50 +110,39 @@ include 'koneksi.php';
    <section class="pb-5">
     <h1 class="text-center fw-bold mb-5 display-5 text-light">Gallery</h1>
      <div class="container-sm ">
-       <button class="btn btn-outline-light text-center" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 100%;">Tambahkan Gallery</button>
+       <div class="row text-center">
+       <button class="btn btn-outline-light mb-4" style="width: 100%;" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Tambahkan Data Baru [+]</button>
 
-       <div class="card mt-2">
-           <div class="card-body" style="overflow-y: scroll; height:500px;">
-           <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Judul</th>
-            <th scope="col">Isi</th>
-            <th scope="col">Gambar</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-            <?php
-              
-            $sql = "SELECT * FROM gallery";
-            $query = mysqli_query($connect,$sql);
-            $no_urut = 0;
-
-            while($gallery = mysqli_fetch_array($query)){
-              $no_urut++;
-              
-                echo "<tr>";
-
-                echo "<td>".$no_urut."</td>";
-                echo "<td>".$gallery['judul']."</td>";
-                echo "<td>".$gallery['isi']."</td>";
-                echo "<td><img src='".$gallery['gambar']."'style='width:100px; height:100px;'></td>";
-
-                echo "<td>";
-                echo "<a class='btn btn-outline-warning me-1' onclick='add()'' name='simpan' href='formgallery.php?id=".$gallery['id']."'>Edit</a> ";
-                echo "<a class='btn btn-outline-danger ms-1' href='galleryhapus.php?id=".$gallery['id']."'>Hapus</a>";
-                echo "</td>";
-                echo "</tr>";
-            }
-            ?>
-        </tbody>
-      </table>
-           </div>
+       <div class="card-group justify-content-evenly">
+       <?php               
+            $id = mysqli_query($connect,'SELECT * FROM gallery ORDER BY gallery.id');
+            while ($isi = mysqli_fetch_array($id)){
+                $idp = $isi['id'];
+        ?>
+         <div class="col-md-4 mb-5">
+          <div class="card shadow-sm" style="width: 98%;">
+            <img src="<?php echo $isi['gambar'] ?>" style="height:230px;" class="card-img-top" alt="">
+            <div class="card-body" style="height: 200px;">
+              <h5 class="card-title fw-bold text-center"><?php echo $isi['judul'] ?></h5>
+              <p class="card-text"><?php echo $isi['isi'] ?></p>
+            </div>
+            <div class="card-footer bg-light">
+              <?php
+              echo "<a class='btn btn-outline-warning me-1' style='width:48%;' onclick='add()'' name='simpan' href='formgallery.php?id=".$isi['id']."'>Edit</a> ";
+              echo "<a class='btn btn-outline-danger ms-1' style='width:48%;' href='galleryhapus.php?id=".$isi['id']."'>Hapus</a>";
+              ?>
+            </div>
+          </div>
+         </div>
+        <?php 
+            } 
+        ?>
+       </div>
        </div>
      </div>
    </section>
+
+   
 
 
    <!-- Waves 3 -->
@@ -169,7 +158,7 @@ include 'koneksi.php';
        <?php               
             $id = mysqli_query($connect,'SELECT * FROM contact ORDER BY contact.id');
             while ($con = mysqli_fetch_array($id)){
-                $idp = $con['id'];
+                $idg = $con['id'];
         ?>
 
        <div class="container-fluid">
@@ -181,6 +170,9 @@ include 'koneksi.php';
                     <hr style="width: 300px;">
                 </p>
                 <p class="card-text">"<?php echo $con['komentar'] ?>"</p>
+                <?php
+                echo "<a class='btn btn-outline-danger ms-1' style='width:100%;' href='contacthapus.php?id=".$con['id']."'>Hapus</a>";
+                ?>
             </div>
          </div>
         </div>
