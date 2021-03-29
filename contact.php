@@ -10,8 +10,8 @@ $komentar = $_POST['komentar'];
 $sql = "INSERT INTO contact (id, nama, email, komentar) VALUES ('$id', '$nama', '$email', '$komentar')";
 $query = mysqli_query($connect,$sql);
 
-if($query) {
-    header('Location: admin.php');
+if(query) {
+    header('Location: main.php');
 }else{
     header('Location: contact.php?status=gagal');
 }
