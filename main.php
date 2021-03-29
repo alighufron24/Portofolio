@@ -46,7 +46,7 @@ include 'koneksi.php';
             <a class="nav-link  active me-4 fw-boldder" href="#about"><b>ABOUT</b></a>
             <a class="nav-link  active me-4 fw-boldder" href="#gallery"><b>GALLERY</b></a>
             <a class="nav-link  active me-5 fw-boldder" href="#contact"><b>CONTACT</b></a>
-            <a class="nav-link  active ms-5  fw-boldder" href="logout_check.php"><b>LOGOUT</b></a>
+            <a class="nav-link  active ms-5 fw-boldder" href="index.php"><b>ADMIN</b></a>
           </div>
         </div>
       </div>
@@ -54,15 +54,12 @@ include 'koneksi.php';
 
 
     <!-- Jumbotron -->
+    
     <div class="jumbotron-sm jumbotron-fluid mb-5" style="height: 600px; background-color: #1B95AF; background-size: cover; background-position-y: -150px;">
       <div class="container-sm text-light text-center">
       
         <img class="img-thumbnail rounded-circle shadow" src="<?php echo $profil['gambar'] ?>" alt="Ali Ghufron" width="250px" height="250px" style="margin-top: 220px;">
         <p class="lead text-center mt-2 fw-bold fs-2"><?php echo $profil['nama'] ?></p>
-
-       <?php
-        echo "<a class='btn btn-outline-light me-1' name='edita' href='formprofil.php?id=".$profil['id']."'>Edit Profil</a> ";
-       ?>
 
         
       </div>
@@ -89,10 +86,6 @@ include 'koneksi.php';
       <h1 class="text-center fw-bold mb-5 display-5">About</h1>
       <div class="col-sm justify-content text-center fs-5">
         <p class="col-sm"><?php echo $about['about'] ?></p>
-        <?php
-        echo "<a class='btn btn-outline-primary me-1' name='edita' href='formabout.php?id=".$about['id']."'>Edit About</a> ";
-
-        ?>
       </div>
     </div>
 
@@ -111,7 +104,6 @@ include 'koneksi.php';
     <h1 class="text-center fw-bold mb-5 display-5 text-light">Gallery</h1>
      <div class="container-sm ">
        <div class="row text-center">
-       <button class="btn btn-outline-light mb-4" style="width: 100%;" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Tambahkan Data Baru [+]</button>
 
        <div class="card-group justify-content-evenly">
        <?php               
@@ -126,12 +118,6 @@ include 'koneksi.php';
               <h5 class="card-title fw-bold text-center"><?php echo $isi['judul'] ?></h5>
               <p class="card-text"><?php echo $isi['isi'] ?></p>
             </div>
-            <div class="card-footer bg-light">
-              <?php
-              echo "<a class='btn btn-outline-warning me-1' style='width:48%;' onclick='add()'' name='simpan' href='formgallery.php?id=".$isi['id']."'>Edit</a> ";
-              echo "<a class='btn btn-outline-danger ms-1' style='width:48%;' href='galleryhapus.php?id=".$isi['id']."'>Hapus</a>";
-              ?>
-            </div>
           </div>
          </div>
         <?php 
@@ -142,48 +128,34 @@ include 'koneksi.php';
      </div>
    </section>
 
-   
-
 
    <!-- Waves 3 -->
    <svg style="margin-top: -48px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1B95AF" fill-opacity="1" d="M0,256L24,245.3C48,235,96,213,144,208C192,203,240,213,288,218.7C336,224,384,224,432,197.3C480,171,528,117,576,128C624,139,672,213,720,208C768,203,816,117,864,96C912,75,960,117,1008,149.3C1056,181,1104,203,1152,224C1200,245,1248,267,1296,256C1344,245,1392,203,1416,181.3L1440,160L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"  ></path></svg>
 
    <!-- Contact -->
    <br id="contact"><br><br><br>
-   <div class="container-fluid">
-   <div class="card" style="background-color: #1B95AF;">
-       <h1 class="card-title mt-3 text-light text-center fw-bold">CONTACTS</h1>
-       <div class="card-body" style="height: 400px; overflow-y: scroll;">
+   <div class="container-sm">
+    <h1 class="text-center mb-5"><b>Contact</b></h1>
+    <form action="contact.php" method="POST">
+      
+      <input type="hidden" name="id">
 
-       <?php               
-            $id = mysqli_query($connect,'SELECT * FROM contact ORDER BY contact.id');
-            while ($con = mysqli_fetch_array($id)){
-                $idg = $con['id'];
-        ?>
+      <div class="form-group mb-3">
+        <label for="name">Nama</label>
+        <input id="name" class="form-control" type="text" name="nama" placeholder="Masukkan Nama">
+      </div>
+      <div class="form-group mb-3">
+        <label for="email">Alamat Email</label>
+        <input id="email" class="form-control" type="email" name="email" placeholder="name@example.com">
+      </div>
+      <div class="form-group mb-3">
+        <label for="comment">Komentar</label>
+        <textarea id="comment" class="form-control" name="komentar" rows="3" placeholder="Komentar disini"></textarea>
+      </div>
 
-       <div class="container-fluid">
-        <div class="card shadow mb-3 mt-3">
-            <div class="card-body p-4">
-                <p class="card-title">
-                    <b class="fs-5"><?php echo $con['nama'] ?></b> <br>
-                    <small class="secondary"><?php echo $con['email'] ?></small><br>
-                    <hr style="width: 300px;">
-                </p>
-                <p class="card-text">"<?php echo $con['komentar'] ?>"</p>
-                <?php
-                echo "<a class='btn btn-outline-danger ms-1' style='width:100%;' href='contacthapus.php?id=".$con['id']."'>Hapus</a>";
-                ?>
-            </div>
-         </div>
-        </div>
-       
+      <button class="btn btn-outline-primary" type="submit" name="simpan" style="width: 100%;">Kirim</button>
 
-
-       <?php 
-        } 
-        ?>
-    </div>
-   </div>
+    </form>
    </div>
 
 
@@ -196,52 +168,6 @@ include 'koneksi.php';
      </div>
    </footer>
 
-
-   <!-- Modal Input Gallery -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header text-light" style="background-color: #1B95AF;">
-            <h5 class="modal-title" id="staticBackdropLabel">Tambahkan Gallery</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-        <form action="gallery.php" method="POST">
-
-            <input type="hidden" name="id">
-                
-            <div class="mb-3">
-                <label for="judul" class="form-label">Judul</label>
-                <input type="text" class="form-control" id="judul" name="judul" aria-describedby="emailHelp">
-            </div>
-
-            <div class="mb-3">
-                <label for="isi" class="form-label">Isi</label>
-                <input type="text" class="form-control" id="isi" name="isi" aria-describedby="emailHelp">
-            </div>
-
-            <div class="mb-3">
-                <label for="gambar" class="form-label">Gambar</label>
-                <input type="text" class="form-control" id="gambar" name="gambar" aria-describedby="emailHelp">
-            </div>
-            
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-outline-primary" name="simpan">Tambahkan</button>
-            </div>
-        </form>
-        </div>
-    </div>
-    </div>
-
-
-
-
-
-
-
-    
 
 
 

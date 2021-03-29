@@ -10,7 +10,7 @@ $gambar = $_POST['gambar'];
 $sql = "INSERT INTO gallery (id, judul, isi, gambar) VALUES ('$id', '$judul', '$isi', '$gambar')";
 $query = mysqli_query($connect,$sql);
 
-if(query) {
+if($query) {
     header('Location: admin.php');
 }else{
     header('Location: gallery.php?status=gagal');

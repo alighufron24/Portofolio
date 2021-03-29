@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Mar 2021 pada 10.26
+-- Waktu pembuatan: 29 Mar 2021 pada 03.15
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.2.32
 
@@ -58,7 +58,9 @@ CREATE TABLE `contact` (
 
 INSERT INTO `contact` (`id`, `nama`, `email`, `komentar`) VALUES
 (1, 'Ali Ghufron', 'alighufron.ag33@gmail.com', 'Mabar ga?'),
-(4, 'Zaky Putra Kresya', 'zakyputrakresya@gmail.com', 'Dih mabar, nugas lah');
+(4, 'Zaky Putra Kresya', 'zakyputrakresya@gmail.com', 'Dih mabar, nugas lah'),
+(5, 'Dadang Gaming', 'dadanggaming@gmail.com', 'gas'),
+(8, 'Andi', 'andigaming@gmail.com', 'hayyuk');
 
 -- --------------------------------------------------------
 
@@ -78,9 +80,9 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `judul`, `isi`, `gambar`) VALUES
-(1, 'Point of Sale', 'lorem ipsum', 'https://blog.tripcetera.com/id/wp-content/uploads/2020/10/pulau-padar.jpg'),
-(6, 'Uji Level', 'ini adalah projek uji level saya', 'https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg'),
-(7, 'Portofolio', 'Projek portofolio saya', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDB2r48mBdbFKIaAm98f0ex5kiR-yXw89Haw&usqp=CAU');
+(1, 'Point of Sale', 'lorem ipsum dolor sit amet', 'https://blog.tripcetera.com/id/wp-content/uploads/2020/10/pulau-padar.jpg'),
+(14, 'Portofolio', 'Halaman yang anda lihat sekarang adalah projek portofolio saya', 'https://i.pinimg.com/originals/6b/83/54/6b8354fd5690a91c54552e3369d64836.jpg'),
+(16, 'Uji Level 2', 'ini adalah projek uji level tahap 2 saya', 'https://jejakpiknik.com/wp-content/uploads/2020/08/1@olegrest-630x380.jpg');
 
 -- --------------------------------------------------------
 
@@ -99,7 +101,29 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id`, `nama`, `gambar`) VALUES
-(1, 'Ali Ghufron', 'https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/4b2e6822cad242c6bef586c29129fe83_Large.jpg');
+(1, 'Ali Ghufron', 'https://pbs.twimg.com/profile_images/1366466342354751491/JyhZpbtu_400x400.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_user`
+--
+
+CREATE TABLE `tbl_user` (
+  `id_user` int(11) NOT NULL,
+  `nama_user` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `username` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(255) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id_user`, `nama_user`, `username`, `password`) VALUES
+(1, 'Ali Ghufron', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(5, 'ahmad', 'ahmad11', 'ce8cfc12b1c11e069954b93ca400372c'),
+(6, 'Ali', 'alighufron', '95390151e95c3b66ec91f35e23323e90');
 
 --
 -- Indexes for dumped tables
@@ -130,6 +154,12 @@ ALTER TABLE `profil`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -143,19 +173,25 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT untuk tabel `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `profil`
 --
 ALTER TABLE `profil`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

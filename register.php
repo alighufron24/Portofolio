@@ -1,3 +1,9 @@
+<?php
+
+include 'koneksi.php';
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,7 +27,7 @@
       }
       body{
         font-family: helvetica;
-        background-color: #1B95AF;
+        background: #1B95AF;
         background: cover;
       }
       .container-card{
@@ -51,14 +57,20 @@
     <div class="container-card">
         <div class="card-login shadow bg-light">
           <div class="card-body">
-            <h1 class="text-center"><b>Login sebagai Admin</b></h1>
+            <h1 class="text-center"><b>Register</b></h1>
             <hr>
             <div class="row">
               <div class="col-2"></div>
               <div class="col-8">
 
-                <form class="user" action="login_check.php" method="POST">
+                <form class="user" action="simpanregister.php" method="POST">
 
+                    <input type="hidden" name="id" id="id">
+
+                  <div class="form-group mt-3">
+                    <label for="uusername"><b>Nama Lengkap</b></label>
+                    <input type="text" id="nama_user" name="nama_user" class="form-control" placeholder="Nama Lengkap" required style="border-radius: 10px;">
+                </div>
                   <div class="form-group mt-3">
                     <label for="uusername"><b>Username</b></label>
                     <input type="text" id="username" name="username" class="form-control" placeholder="Username" required style="border-radius: 10px;">
@@ -70,25 +82,10 @@
                 </div>
                 <br>
                 <div class="mb-3 form-check">
-                  <div class="row">
-                      <div class="col-6">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Ingat Saya</label>
-                      </div>
-                      <div class="col-6">
-                          <a class="float-end me-3" href="register.php"><b>Register</b></a>
-                      </div>
+                  
                   </div>
                 </div>
-                <div class="row">
-                    <div class="col-6">
-                        <button class="btn form-control btn-p btn-block mb-2 mt-5 shadow" type="submit" style="border-radius: 50px; width: 200px; color: white; background-color: #1B95AF; width: 100%;"><b>Masuk</b></button>
-                
-                    </div>
-                    <div class="col-6">
-                        <a href="main.php" class="btn form-control btn-p btn-block mb-2 mt-5 shadow" type="submit" style="border-radius: 50px; width: 200px; color: white; background-color: #1B95AF; width: 100%;"><b>Masuk sebagai User</b></a>
-                    </div>
-                </div>
+                <center><button class="btn form-control btn-p btn-block mb-3 shadow" type="submit" style="border-radius: 50px; width: 200px; background-color: #1B95AF; color: white;" name="simpan"><b>Daftar</b></button></center>
 
               </form>
               
