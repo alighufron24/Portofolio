@@ -7,8 +7,14 @@ if(isset($_POST['edita'])) {
 
     $sql = "UPDATE about SET about='$about' WHERE id='$id'";
     $query = mysqli_query($connect,$sql);
+
+    $message = 'Berhasi mengedit data';
+
     if ($query) {
-    header('Location: admin.php');
+        echo "<SCRIPT>
+        alert('$message')
+        window.location.replace('admin.php');
+    </SCRIPT>";
     }else{
     header('Location: editabout.php?status=gagal');
     }

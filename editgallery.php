@@ -10,7 +10,10 @@ if(isset($_POST['editg'])) {
     $sql = "UPDATE gallery SET judul='$judul', isi='$isi', gambar='$gambar' WHERE id='$id'";
     $query = mysqli_query($connect,$sql);
     if ($query) {
-    header('Location: admin.php');
+        echo "<SCRIPT>
+        alert('Berhasil mengedit data')
+        window.location.replace('admin.php');
+    </SCRIPT>";
     }else{
     header('Location: editgallery.php?status=gagal');
     }

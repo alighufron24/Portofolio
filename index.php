@@ -82,7 +82,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <button class="btn form-control btn-p btn-block mb-2 mt-5 shadow" type="submit" style="border-radius: 50px; width: 200px; color: white; background-color: #1B95AF; width: 100%;"><b>Masuk</b></button>
+                        <button class="btn form-control btn-p btn-block mb-2 mt-5 shadow" type="submit" name="login" style="border-radius: 50px; width: 200px; color: white; background-color: #1B95AF; width: 100%;"><b>Masuk</b></button>
                 
                     </div>
                     <div class="col-6">

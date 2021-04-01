@@ -1,5 +1,21 @@
 <?php
 include 'koneksi.php';
+session_start();
+
+  //mengatasi jika user langsung masuk menggunakan link, tanpa login
+  if(empty($_SESSION['id_user']) or empty($_SESSION['username']))
+  {
+    echo "<script>
+        alert('Maaf, untuk mengakses halaman ini, Silahkan Login terlebih dahulu!');
+        document.location='index.php';
+        </script>";
+  }
+
+    if(!isset($_SESSION['username'])) {
+        include("index.php");
+    }
+    else {
+    
 
 ?>
 
@@ -36,7 +52,10 @@ include 'koneksi.php';
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top p-3" style="background-color: #1B95AF;">
       <div class="container-sm">
-        <a href="https://www.instagram.com/a.ghuf/" class="nav-link  active me-4 fs-5 fw-bold" style="color: black;"><?php echo $profil['nama'] ?></a>
+        <a href="" class="nav-link  active me-4 fs-5 fw-bold" style="color: black;"><?php echo $profil['nama'] ?></a>
+    <?php 
+      }
+    ?>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,15 +66,29 @@ include 'koneksi.php';
             <a class="nav-link  active me-4 fw-boldder" href="#gallery"><b>GALLERY</b></a>
             <a class="nav-link  active me-5 fw-boldder" href="#contact"><b>CONTACT</b></a>
             <a class="nav-link  active ms-5  fw-boldder" href="logout_check.php"><b>LOGOUT</b></a>
+        <?php 
+          }
+        ?>
           </div>
         </div>
       </div>
     </nav>
 
 
+    
     <!-- Jumbotron -->
     <div class="jumbotron-sm jumbotron-fluid mb-5" style="height: 600px; background-color: #1B95AF; background-size: cover; background-position-y: -150px;">
       <div class="container-sm text-light text-center">
+
+      <?php
+
+        $sql = "SELECT * FROM profil";
+        $query = mysqli_query($connect,$sql);
+
+        while($profil = mysqli_fetch_array($query)){
+
+
+      ?>
       
         <img class="img-thumbnail rounded-circle shadow" src="<?php echo $profil['gambar'] ?>" alt="Ali Ghufron" width="250px" height="250px" style="margin-top: 220px;">
         <p class="lead text-center mt-2 fw-bold fs-2"><?php echo $profil['nama'] ?></p>
@@ -67,9 +100,7 @@ include 'koneksi.php';
         
       </div>
     </div>
-    <?php
-        }
-        ?>
+    <?php } ?>
 
     <!-- Waves -->
     <svg id="about" style="margin-top: -48px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1B95AF" fill-opacity="1" d="M0,256L24,245.3C48,235,96,213,144,208C192,203,240,213,288,218.7C336,224,384,224,432,197.3C480,171,528,117,576,128C624,139,672,213,720,208C768,203,816,117,864,96C912,75,960,117,1008,149.3C1056,181,1104,203,1152,224C1200,245,1248,267,1296,256C1344,245,1392,203,1416,181.3L1440,160L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"></path></svg>

@@ -8,10 +8,16 @@ if(isset($_POST['editp'])) {
 
     $sql = "UPDATE profil SET nama='$nama', gambar='$gambar' WHERE id='$id'";
     $query = mysqli_query($connect,$sql);
+
+    $message = 'Berhasil mengedit data';
+
     if ($query) {
-    header('Location: admin.php');
+        echo "<SCRIPT>
+        alert('$message')
+        window.location.replace('admin.php');
+    </SCRIPT>";
     }else{
-    header('Location: editprofil.php?status=gagal');
+        header('location: editprofil.php?status=gagal');
     }
 }
 ?>

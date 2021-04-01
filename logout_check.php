@@ -1,11 +1,8 @@
+codesource
 <?php
     session_start();
-    //hapus session yang sudah di set
-    unset($_SESSION['id_user']);
     unset($_SESSION['username']);
-
+    unset($_SESSION['password']);
     session_destroy();
-    echo "<script>
-            document.location='index.php';
-          </script>";
+    header("Location: index.php");
 ?>

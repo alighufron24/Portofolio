@@ -15,14 +15,14 @@ $data = mysqli_fetch_array($login);
 if($data)
 {
     $_SESSION['id_user'] = $data['id_user'];
-    $_SESSION['username'] = $data['username'];
     $_SESSION['nama_user'] = $data['nama_user'];
+    $_SESSION['username'] = $data['username'];
 
     header('location:admin.php');
 }
 else
 {
-    header('location:index.php');
+    echo "Login gagal Password salah";
 }
 
 ?>
