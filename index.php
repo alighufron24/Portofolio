@@ -24,10 +24,10 @@
         background-color: #1B95AF;
         background: cover;
       }
-      .container-card{
-        width: 700px;
-        height: 400px;
-        margin: 150px auto;
+      .tengah{
+        width: 100%;
+        height: 100%;
+        margin: 12% auto;
         display: flex;
       }
       .card-login{
@@ -38,7 +38,7 @@
         /* color: white; */
         margin: auto;
         display: flex;
-        border-radius: 20px;
+        
       }
       html{
         overflow: hidden;
@@ -48,59 +48,59 @@
   <body>
 
     <!-- Login -->
-    <div class="container-card">
-        <div class="card-login shadow bg-light">
-          <div class="card-body">
-            <h1 class="text-center"><b>Login sebagai Admin</b></h1>
-            <hr>
-            <div class="row">
-              <div class="col-2"></div>
-              <div class="col-8">
+    <div class="col-sm tengah">
+      <div class="card-login shadow bg-light">
+        <div class="card-body">
+          <h1 class="text-center"><b>Login sebagai Admin</b></h1>
+          <hr>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
 
-                <form class="user" action="login_check.php" method="POST">
+              <form class="user" action="login_check.php" method="POST">
 
-                  <div class="form-group mt-3">
-                    <label for="uusername"><b>Username</b></label>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required style="border-radius: 10px;">
-                </div>
-                <br>
-                <div class="form-group">
-                  <label for="ppassword"><b>Password</b></label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required style="border-radius: 10px;">
-                </div>
-                <br>
-                <div class="mb-3 form-check">
-                  <div class="row">
-                      <div class="col-6">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Ingat Saya</label>
-                      </div>
-                      <div class="col-6">
-                          <a class="float-end me-3" href="register.php"><b>Register</b></a>
-                      </div>
-                  </div>
-                </div>
+                <div class="form-group mt-3">
+                  <label for="uusername"><b>Username</b></label>
+                  <input type="text" id="username" name="username" class="form-control" placeholder="Username" required style="border-radius: 10px;">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="ppassword"><b>Password</b></label>
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Password" required style="border-radius: 10px;">
+              </div>
+              <br>
+              <div class="mb-3 form-check">
                 <div class="row">
                     <div class="col-6">
-                        <button class="btn form-control btn-p btn-block mb-2 mt-5 shadow" type="submit" name="login" style="border-radius: 50px; width: 200px; color: white; background-color: #1B95AF; width: 100%;"><b>Masuk</b></button>
-                
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Ingat Saya</label>
                     </div>
                     <div class="col-6">
-                        <a href="main.php" class="btn form-control btn-p btn-block mb-2 mt-5 shadow" type="submit" style="border-radius: 50px; width: 200px; color: white; background-color: #1B95AF; width: 100%;"><b>Masuk sebagai User</b></a>
+                        
                     </div>
                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6">
+                      <button class="btn form-control btn-p btn-block mb-2 mt-5 shadow" type="submit" name="login" style="border-radius: 50px; width: 200px; color: white; background-color: #1B95AF; width: 100%;"><b>Masuk</b></button>
+              
+                  </div>
+                  <div class="col-sm-6">
+                      <a href="main.php" class="btn form-control btn-p btn-block mb-2 mt-5 shadow" type="submit" style="border-radius: 50px; width: 200px; color: white; background-color: #1B95AF; width: 100%;"><b>Masuk sebagai User</b></a>
+                  </div>
+              </div>
 
-              </form>
-              
-              </div>
-              
+            </form>
             
-              <div class="col-2">
-              </div>
             </div>
-          <br>
+            
+          
+            <div class="col-2">
+            </div>
           </div>
+        <br>
         </div>
+      </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

@@ -19,6 +19,7 @@ session_start();
 
 ?>
 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -64,7 +65,8 @@ session_start();
             <a class="nav-link  active me-4 fw-boldder" aria-current="page" href="#home"><b>HOME</b></a>
             <a class="nav-link  active me-4 fw-boldder" href="#about"><b>ABOUT</b></a>
             <a class="nav-link  active me-4 fw-boldder" href="#gallery"><b>GALLERY</b></a>
-            <a class="nav-link  active me-5 fw-boldder" href="#contact"><b>CONTACT</b></a>
+            <a class="nav-link  active me-4 fw-boldder" href="#contact"><b>CONTACT</b></a>
+            <a class="nav-link  active me-5 fw-boldder" href="print.php" target="blank"><b>PRINT</b></a>
             <a class="nav-link  active ms-5  fw-boldder" href="logout_check.php"><b>LOGOUT</b></a>
         <?php 
           }

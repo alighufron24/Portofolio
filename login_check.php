@@ -22,7 +22,10 @@ if($data)
 }
 else
 {
-    echo "Login gagal Password salah";
+    echo "<SCRIPT>
+        alert('Login gagal! Periksa kembali username dan password anda')
+        window.location.replace('index.php');
+    </SCRIPT>";
 }
 
 ?>
